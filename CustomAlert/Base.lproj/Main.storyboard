@@ -1,24 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="CustomAlert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cqv-TA-l6k">
+                                <rect key="frame" x="168" y="438" width="78" height="30"/>
+                                <state key="normal" title="오류신고하기"/>
+                                <connections>
+                                    <action selector="showAlert:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3ZT-Ma-X4I"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U9i-kl-IcW">
+                                <rect key="frame" x="127" y="371" width="160" height="30"/>
+                                <state key="normal" title="성곡적으로 접수되었습니다"/>
+                                <connections>
+                                    <action selector="showToast:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Xn-EX-HDU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1Q-pV-jhw">
+                                <rect key="frame" x="161.5" y="493" width="91" height="30"/>
+                                <state key="normal" title="네비게이션선택"/>
+                                <connections>
+                                    <action selector="naviSelectAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DTn-um-dUv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l2Y-10-EQN">
+                                <rect key="frame" x="161.5" y="541" width="91" height="30"/>
+                                <state key="normal" title="복사되었습니다"/>
+                                <connections>
+                                    <action selector="CopyAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rhd-de-mik"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <constraints>
+                            <constraint firstItem="l2Y-10-EQN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7BU-gS-Vu1"/>
+                            <constraint firstItem="cqv-TA-l6k" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="7Mf-ct-Otf"/>
+                            <constraint firstItem="j1Q-pV-jhw" firstAttribute="top" secondItem="cqv-TA-l6k" secondAttribute="bottom" constant="25" id="7fF-L5-TQW"/>
+                            <constraint firstItem="cqv-TA-l6k" firstAttribute="top" secondItem="U9i-kl-IcW" secondAttribute="bottom" constant="37" id="7yI-6Q-PXU"/>
+                            <constraint firstItem="U9i-kl-IcW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="F1Q-du-gWg"/>
+                            <constraint firstItem="j1Q-pV-jhw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NDB-bM-PXa"/>
+                            <constraint firstItem="l2Y-10-EQN" firstAttribute="top" secondItem="j1Q-pV-jhw" secondAttribute="bottom" constant="18" id="fLI-8f-ZRU"/>
+                            <constraint firstItem="cqv-TA-l6k" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kpY-Y7-nc5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="1n8-eH-xXa" kind="presentation" id="WLw-JC-2In"/>
+                        <segue destination="evL-Wh-hKB" kind="presentation" id="lUp-1y-6Ym"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-86" y="98"/>
+        </scene>
+        <!--Report Alert View-->
+        <scene sceneID="Kmd-ZO-AP2">
+            <objects>
+                <viewController storyboardIdentifier="ReportAlertView" id="1n8-eH-xXa" customClass="ReportAlertView" customModule="CustomAlert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x3i-il-Dy0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QX2-22-ZbP" userLabel="Dialog">
+                                <rect key="frame" x="67" y="246.5" width="280" height="315"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRl-AF-wbg">
+                                        <rect key="frame" x="30" y="76" width="220" height="42"/>
+                                        <state key="normal" title="스테이션" backgroundImage="report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="push_report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="errorReportAction:" destination="1n8-eH-xXa" eventType="touchUpInside" id="bk7-O1-I17"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr8-M7-I2Q">
+                                        <rect key="frame" x="30" y="126" width="220" height="42"/>
+                                        <state key="normal" title="배터리" backgroundImage="report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="push_report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="errorReportAction:" destination="1n8-eH-xXa" eventType="touchUpInside" id="pXd-r5-PhK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17C-U1-TXK">
+                                        <rect key="frame" x="30" y="176" width="220" height="42"/>
+                                        <state key="normal" title="카드리더기" backgroundImage="report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="push_report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="errorReportAction:" destination="1n8-eH-xXa" eventType="touchUpInside" id="eXd-dY-osD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKm-6I-sSV">
+                                        <rect key="frame" x="30" y="226" width="220" height="42"/>
+                                        <state key="normal" title="기타 신고 및 문의" backgroundImage="report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <state key="selected" backgroundImage="push_report_detail_box">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="errorReportAction:" destination="1n8-eH-xXa" eventType="touchUpInside" id="y6b-7v-QeI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pX3-vT-pRE" userLabel="close">
+                                        <rect key="frame" x="249" y="14" width="16" height="18"/>
+                                        <state key="normal" backgroundImage="close_icon"/>
+                                        <connections>
+                                            <action selector="onDismiss:" destination="1n8-eH-xXa" eventType="touchUpInside" id="QHw-Mc-WZY"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오류 신고하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOX-2x-HDF">
+                                        <rect key="frame" x="91" y="25" width="98" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="uRl-AF-wbg" firstAttribute="top" secondItem="QX2-22-ZbP" secondAttribute="top" constant="76" id="2Y5-JS-gAn"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="17C-U1-TXK" secondAttribute="trailing" constant="20" symbolic="YES" id="43I-kl-v8E"/>
+                                    <constraint firstItem="sKm-6I-sSV" firstAttribute="leading" secondItem="Wr8-M7-I2Q" secondAttribute="leading" id="FLS-sq-Z7F"/>
+                                    <constraint firstItem="uRl-AF-wbg" firstAttribute="centerX" secondItem="QX2-22-ZbP" secondAttribute="centerX" id="I9f-KU-1by"/>
+                                    <constraint firstItem="mOX-2x-HDF" firstAttribute="top" secondItem="QX2-22-ZbP" secondAttribute="top" constant="25" id="JYM-4P-mvL"/>
+                                    <constraint firstItem="pX3-vT-pRE" firstAttribute="top" secondItem="QX2-22-ZbP" secondAttribute="top" constant="14" id="Ot1-A5-qCk"/>
+                                    <constraint firstAttribute="height" constant="315" id="XFm-Vg-FWH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wr8-M7-I2Q" secondAttribute="trailing" constant="20" symbolic="YES" id="eDQ-QK-fYr"/>
+                                    <constraint firstAttribute="width" constant="280" id="ea9-xQ-C78"/>
+                                    <constraint firstItem="sKm-6I-sSV" firstAttribute="leading" secondItem="17C-U1-TXK" secondAttribute="leading" id="gLM-tM-y0C"/>
+                                    <constraint firstItem="mOX-2x-HDF" firstAttribute="centerX" secondItem="QX2-22-ZbP" secondAttribute="centerX" id="mMl-wz-2Da"/>
+                                    <constraint firstItem="sKm-6I-sSV" firstAttribute="top" secondItem="17C-U1-TXK" secondAttribute="bottom" constant="8" symbolic="YES" id="pGk-wc-O38"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sKm-6I-sSV" secondAttribute="trailing" constant="20" symbolic="YES" id="tWY-hZ-RHu"/>
+                                    <constraint firstAttribute="bottom" secondItem="sKm-6I-sSV" secondAttribute="bottom" constant="47" id="uLz-Fx-wc1"/>
+                                    <constraint firstItem="Wr8-M7-I2Q" firstAttribute="top" secondItem="uRl-AF-wbg" secondAttribute="bottom" constant="8" symbolic="YES" id="ufl-DD-WDs"/>
+                                    <constraint firstItem="sKm-6I-sSV" firstAttribute="leading" secondItem="uRl-AF-wbg" secondAttribute="leading" id="who-8h-pOw"/>
+                                    <constraint firstAttribute="trailing" secondItem="pX3-vT-pRE" secondAttribute="trailing" constant="15" id="zLH-St-Fev"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cCt-74-OpK"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QX2-22-ZbP" firstAttribute="centerY" secondItem="cCt-74-OpK" secondAttribute="centerY" id="dCn-Qc-IxM"/>
+                            <constraint firstItem="QX2-22-ZbP" firstAttribute="centerX" secondItem="cCt-74-OpK" secondAttribute="centerX" id="iBM-of-ZZB"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="dialogView" destination="QX2-22-ZbP" id="2yY-76-ffy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sAT-6B-AZJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="-196"/>
+        </scene>
+        <!--Navigation Alert View-->
+        <scene sceneID="Gbl-X1-Lxg">
+            <objects>
+                <viewController storyboardIdentifier="NavigationAlertView" id="evL-Wh-hKB" customClass="NavigationAlertView" customModule="CustomAlert" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Vx-V3-tM8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggI-X2-PVS">
+                                <rect key="frame" x="67" y="328" width="280" height="152"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="네비게이션 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo0-eN-wzf">
+                                        <rect key="frame" x="83" y="25" width="114" height="21"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGN-ct-x82">
+                                        <rect key="frame" x="244" y="15" width="16" height="18"/>
+                                        <state key="normal" backgroundImage="close_icon"/>
+                                        <connections>
+                                            <action selector="onDismiss:" destination="evL-Wh-hKB" eventType="touchUpInside" id="Qro-1N-kcb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5S2-4M-YKL">
+                                        <rect key="frame" x="35" y="77" width="50" height="50"/>
+                                        <state key="normal" backgroundImage="tmap"/>
+                                        <connections>
+                                            <action selector="naviSelectAction:" destination="evL-Wh-hKB" eventType="touchUpInside" id="rLb-oA-R6K"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MQ-k6-y13">
+                                        <rect key="frame" x="126" y="74" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="kakao_navi"/>
+                                        <connections>
+                                            <action selector="naviSelectAction:" destination="evL-Wh-hKB" eventType="touchUpInside" id="dtv-hK-qNy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PyB-rl-Be0">
+                                        <rect key="frame" x="212" y="74" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="naver_navi"/>
+                                        <connections>
+                                            <action selector="naviSelectAction:" destination="evL-Wh-hKB" eventType="touchUpInside" id="vnZ-Nc-0s5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AGN-ct-x82" firstAttribute="top" secondItem="ggI-X2-PVS" secondAttribute="top" constant="15" id="Q4X-oz-vyh"/>
+                                    <constraint firstItem="Vo0-eN-wzf" firstAttribute="top" secondItem="ggI-X2-PVS" secondAttribute="top" constant="25" id="Sh7-n6-Tg6"/>
+                                    <constraint firstAttribute="height" constant="152" id="cnJ-FF-xzT"/>
+                                    <constraint firstAttribute="trailing" secondItem="AGN-ct-x82" secondAttribute="trailing" constant="20" id="imS-Pd-nCT"/>
+                                    <constraint firstItem="5S2-4M-YKL" firstAttribute="leading" secondItem="ggI-X2-PVS" secondAttribute="leading" constant="35" id="mZC-hP-cZA"/>
+                                    <constraint firstAttribute="width" constant="280" id="oXM-pd-zFO"/>
+                                    <constraint firstItem="Vo0-eN-wzf" firstAttribute="centerX" secondItem="ggI-X2-PVS" secondAttribute="centerX" id="r1I-Fn-j2v"/>
+                                    <constraint firstAttribute="bottom" secondItem="5S2-4M-YKL" secondAttribute="bottom" constant="25" id="xSK-fY-LJi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nm3-zP-ASa"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ggI-X2-PVS" firstAttribute="centerX" secondItem="Nm3-zP-ASa" secondAttribute="centerX" id="aBF-kZ-Hcv"/>
+                            <constraint firstItem="ggI-X2-PVS" firstAttribute="centerY" secondItem="Nm3-zP-ASa" secondAttribute="centerY" id="kB9-67-AeB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dialogView" destination="ggI-X2-PVS" id="PqG-af-FSh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z0s-e7-Lbp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1354" y="546"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close_icon" width="15.5" height="15.5"/>
+        <image name="kakao_navi" width="50" height="50"/>
+        <image name="naver_navi" width="50" height="50"/>
+        <image name="push_report_detail_box" width="220" height="42"/>
+        <image name="report_detail_box" width="220" height="42"/>
+        <image name="tmap" width="50" height="50"/>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
